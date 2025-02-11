@@ -8,11 +8,12 @@ namespace CMP1903_A1_2324
 {
     internal class DieVisualise
     {
-        private string visual1 = "--1--";
-        private string visual2 = "--2--";
-        private string visual3 = "--3--";
-        private string visual4 = "--4--";
-        private string visual5 = "\n┌─────┐\r\n│o   o│\r\n│  o  │\r\n│o   o│\r\n└─────┘\n";
+        private string visual1 = "·\r\n";
+        private string visual2 = " ·\r\n·";
+        private string visual3 = "  ·\r\n ·\r\n·";
+        private string visual4 = "· ·\r\n· ·";
+        private string visual5 = "· ·\r\n ·\r\n· ·";
+        private string visual6 = "···\r\n···";
 
         private string selectedVisual = "Error: dice value not valid.";
 
@@ -23,6 +24,7 @@ namespace CMP1903_A1_2324
             else if (dieVal.Equals(3)) selectedVisual = visual3;
             else if (dieVal.Equals(4)) selectedVisual = visual4;
             else if (dieVal.Equals(5)) selectedVisual = visual5;
+            else if (dieVal.Equals(6)) selectedVisual = visual6;
 
             return selectedVisual;
         }

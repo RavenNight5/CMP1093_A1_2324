@@ -11,20 +11,25 @@ namespace CMP1903_A1_2324
         public static int dieCount = 3;
         public static int totalValue = 0;
 
+        public static bool currentlyTestingVal = false;
+
         static void Main(string[] args)
         {
-            // This code creates the game object and calls its methods.
-            Game game = new Game();
-            
-            //int total = game.RollAndReportTotal();
-
-            //Console.WriteLine("The total of the three dice rolls is: " + total);
-            Console.Write("");
+            currentlyTestingVal = true;
 
             // This code optionally creates a testing object to verify the output and operation of other classes.
             ProgramTesting testing = new ProgramTesting();
 
             testing.RunTests();
+
+            ///Main program///
+
+            Game game = new Game();
+
+            Console.WriteLine("\nThe total of the dice roll is: " + totalValue);
+
+            Console.WriteLine("\nPress any key to exit...");
+            Console.ReadKey();
         }
     }
 
@@ -36,13 +41,12 @@ namespace CMP1903_A1_2324
             Testing testing = new Testing();
 
             testing.TestGame();
-            testing.TestDie();
+            testing.TestDieResult();
 
-            Console.WriteLine("Tests completed successfully.");
-            // As an option, you can add tests here to verify the output and operation of other classes.
-            //Die die = new Die();
-            //die.Roll();
-            //Console.WriteLine("The face value of the die is: " + die.FaceValue);
+            Console.WriteLine("\nTests completed successfully.");
+
+            Program.currentlyTestingVal = false;
+            Program.totalValue = 0;
         }
     }
 }

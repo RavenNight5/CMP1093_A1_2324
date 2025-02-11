@@ -8,18 +8,34 @@ namespace CMP1903_A1_2324
 {
     internal class Game
     {
-        private Die[] dice;
+        private DieThrow dice;
+        private DieVisualise dieVis;
+
+        private string DieVisual = "";
 
         // This is the constructor.
         public Game()
         {
-            // This Creates the three die objects.
-            dice = new Die[Program.dieCount];
+            dice = new DieThrow();
+            dieVis = new DieVisualise();
 
-            for (int i = 0; i < 3; i++)
+            dice.Roll();
+
+            for (int i = 0; i < Program.dieCount; i++)
             {
-                dice[i] = new Die();
+                if (Program.currentlyTestingVal.Equals(false))
+                {
+                    Console.WriteLine("\nThrew a " + DieThrow.diceThrowValues[i]);
+
+                    DieVisual = dieVis.ReturnDiceVisual(DieThrow.diceThrowValues[i]);
+
+                    Console.WriteLine(DieVisual);
+                }
             }
+
+
+            //Console.WriteLine("The face value of the die just rolled is: " + FaceValue + " " + DieVisual);
+
         }
 
         // This part of the code rolls the dice and then calculates the sum, reporting the total.

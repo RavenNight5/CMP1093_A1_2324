@@ -13,36 +13,22 @@ namespace CMP1903_A1_2324
         public void TestGame()
         {
             // This code creates a new Game object.
-            //Game game = new Game();
-            
-            // This code calls the RollAndReportTotal() method.
-            //int total = game.RollAndReportTotal();
-            
+            Game game = new Game();
+
             // This part of the code compares the actual output to the output that is expected.
-            //Debug.Assert(total >= 3 && total <= 18, "Unexpected total value.");
+            Debug.Assert(Program.totalValue >= 3 && Program.totalValue <= 18, "Tests resulted in an unexpected total value.");
         }
 
         // Method to test the Die class
-        public void TestDie()
+        public void TestDieResult()
         {
-            // Create a Die object
-            //Die die = new Die();
-            
-            // Roll the die
-            //die.Roll();
-            
-            // Compare the face value to the expected range
-            //Debug.Assert(die.FaceValue >= 1 && die.FaceValue <= 6, "Unexpected die face value.");
+            // Compare the values to the expected range from the Game created in the TestGame method
+            for (int i = 0; i < Program.dieCount; i++)
+            {
+                Debug.Assert(DieThrow.diceThrowValues[i] >= 1 && DieThrow.diceThrowValues[i] <= 6, "Unexpected die face value.");
+            }
         }
-
-        // Main method to run the tests
-        //static void Main(string[] args)
-        //{
-        //    Testing testing = new Testing();
-        //    testing.TestGame();
-        //    testing.TestDie();
-
-        //    Console.WriteLine("Tests completed successfully.");
-        //}
     }
+
+
 }
